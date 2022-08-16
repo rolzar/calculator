@@ -1,0 +1,63 @@
+
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 30px;
+    margin: 30px 0px;
+}
+
+
+.container{
+    width: 500px;
+    height: 650px;
+    padding: 10px;
+    background-color: rgb(59, 58, 58);
+    border: solid black;   
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(6,1fr); 
+    grid-template-areas: 
+    "display display display display"
+    '. . . .''. . . .''. . . .''. . . .'
+    "zero zero . .";
+
+}
+
+.display{
+    grid-area: display;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    font-size: 100px;
+    text-align: end;
+    color: white;
+}
+
+.btn {
+    background-color: darkslategrey;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 5px 2px;
+    border-radius: 20px;
+  }
+
+#zero{
+    grid-area: zero;
+    padding-bottom: 10px;
+}
+
+.math{
+    background-color: rgb(247, 185, 30);
+}
+
+.alter{
+    background-color: rgb(119, 195, 195);
+    color: black;
+
+}
