@@ -4,19 +4,19 @@ let thrCanOnlyBeTwo = {}
 let isMaster = false;
 
 function add(){
-    return thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice
+    return display.innerText = thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice
 }
 
 function subtract(){
-    return thrCanOnlyBeTwo.master - thrCanOnlyBeTwo.apprentice
+    return display.innerText = thrCanOnlyBeTwo.master - thrCanOnlyBeTwo.apprentice
 }
 
 function multiply(){
-    return thrCanOnlyBeTwo.master * thrCanOnlyBeTwo.apprentice
+    return display.innerText = thrCanOnlyBeTwo.master * thrCanOnlyBeTwo.apprentice
 }
 
 function divide(){
-    return thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice
+    return display.innerText = thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice
 }
 
 
@@ -50,7 +50,21 @@ function alter(event){
 
 function equate(){
     thrCanOnlyBeTwo.apprentice = +display.innerText;
-    console.log(thrCanOnlyBeTwo);
+    if(thrCanOnlyBeTwo.math == 'add'){
+        add();
+    } else if(thrCanOnlyBeTwo.math == 'sub'){
+        subtract();
+    } else if(thrCanOnlyBeTwo.math == 'multiply'){
+        multiply();
+    } else if(thrCanOnlyBeTwo.math == 'division'){
+        if(thrCanOnlyBeTwo.apprentice == 0){
+            alert("Oops! Can't divide by zero.");
+            alter('clear');
+            return
+        }
+        divide();
+    }
+
 
 }
 
