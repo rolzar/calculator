@@ -3,6 +3,7 @@ const display = document.querySelector('.display')
 let thrCanOnlyBeTwo = {}
 let isMaster = false;
 
+
 function add(){
     return display.innerText = thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice
 }
@@ -18,6 +19,12 @@ function multiply(){
 function divide(){
     return display.innerText = thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice
 }
+
+function remainder(){
+    return display.innerText = thrCanOnlyBeTwo.master % thrCanOnlyBeTwo.apprentice
+}
+
+
 
 
 function changeDisplay(event){
@@ -42,14 +49,30 @@ function storeMaster(symbol){
 }
 
 function alter(event){
+ 
     if(event == 'clear'){
         display.innerText = 0;
         thrCanOnlyBeTwo = {};
+    } else if(event == 'sign'){
+        if(display.innerText[0] == '-'){
+            display.innerText = Math.abs(display.innerText)
+        } else {
+            display.innerText = '-'+display.innerText
+        }
+    } else if(event == 'decimal'){
+        if(display.innerText.includes('.')){
+            alert("Can't add anymore decimals")
+        } else {
+            display.innerText = display.innerText + '.'
+        }
+    } else {       
+        storeMaster('remainder')
     }
 }
 
 function equate(){
     thrCanOnlyBeTwo.apprentice = +display.innerText;
+    
     if(thrCanOnlyBeTwo.math == 'add'){
         add();
     } else if(thrCanOnlyBeTwo.math == 'sub'){
@@ -63,12 +86,14 @@ function equate(){
             return
         }
         divide();
+    } else if(thrCanOnlyBeTwo.math == 'remainder'){
+        remainder();
     }
 
 
 }
 
-function compute(e){
+function calculator(e){
     const choose = e.target.classList.value
     if(!choose.includes('btn')) return;
 
@@ -84,4 +109,4 @@ function compute(e){
 
 }
 
-window.addEventListener('click',compute)
+window.addEventListener('click',calculator)
