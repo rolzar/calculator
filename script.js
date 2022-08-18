@@ -1,36 +1,57 @@
 const container = document.querySelector('.container');
 const display = document.querySelector('.display')
 let thrCanOnlyBeTwo = {}
-let isMaster = false;
+let isApprentice = false;
 
 
 function add(){
-    return display.innerText = thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice
+    let addition = thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice;
+    theReplacement(addition);
+    
+    return display.innerText = addition
 }
 
 function subtract(){
-    return display.innerText = thrCanOnlyBeTwo.master - thrCanOnlyBeTwo.apprentice
+    let sub = thrCanOnlyBeTwo.master - thrCanOnlyBeTwo.apprentice
+    theReplacement(sub);
+
+    return display.innerText = sub
 }
 
 function multiply(){
-    return display.innerText = thrCanOnlyBeTwo.master * thrCanOnlyBeTwo.apprentice
+    let multi = thrCanOnlyBeTwo.master * thrCanOnlyBeTwo.apprentice;
+    theReplacement(multi);
+
+    return display.innerText = multi
 }
 
 function divide(){
-    return display.innerText = thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice
+    let div = thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice;
+    theReplacement(div);
+
+    return display.innerText = div
 }
 
 function remainder(){
-    return display.innerText = thrCanOnlyBeTwo.master % thrCanOnlyBeTwo.apprentice
+    let rem = thrCanOnlyBeTwo.master % thrCanOnlyBeTwo.apprentice;
+    theReplacement(rem);
+
+    return display.innerText = rem
 }
 
 
+function theReplacement(after){
+    thrCanOnlyBeTwo.master = after; 
+    delete thrCanOnlyBeTwo.apprentice
+    delete thrCanOnlyBeTwo.math
+    isApprentice = true
 
+}
 
 function changeDisplay(event){
-    if(display.innerText == '0' || isMaster){
+    if(display.innerText == '0' || isApprentice){
         display.innerText = event
-        isMaster = false;
+        isApprentice = false;
     } else{
         display.innerText += event
     }
@@ -40,10 +61,10 @@ function changeDisplay(event){
 function storeMaster(symbol){
     thrCanOnlyBeTwo.math = symbol;
     if('master' in thrCanOnlyBeTwo){
-        //isMaster = true; 
+        isApprentice = true; 
     } else {
         thrCanOnlyBeTwo.master = +display.innerText;
-        isMaster = true; 
+        isApprentice = true; 
     }
 
 }
@@ -100,7 +121,13 @@ function calculator(e){
     if(choose.includes('num')){
         changeDisplay(e.target.innerText)
     } else if(choose.includes('math')){
-        storeMaster(e.target.id)
+        if('math' in thrCanOnlyBeTwo){
+            equate()
+            storeMaster(e.target.id)
+        } else {
+            storeMaster(e.target.id)
+        }
+        
     } else if(choose.includes('alter')){
         alter(e.target.id)
     } else if(choose.includes('equate')){
