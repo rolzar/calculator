@@ -41,7 +41,8 @@ function remainder(){
 
 
 function theReplacement(after){
-    thrCanOnlyBeTwo.master = after; 
+    thrCanOnlyBeTwo.master = after;
+
     delete thrCanOnlyBeTwo.apprentice
     delete thrCanOnlyBeTwo.math
     isApprentice = true

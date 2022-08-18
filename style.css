@@ -34,9 +34,13 @@ body{
     grid-area: display;
     margin-bottom: 30px;
     margin-left: 30px;
+    margin-right: 30px;
     font-size: 100px;
     text-align: end;
     color: white;
+}
+
+.over-flow{
     overflow:hidden;
     text-overflow:ellipsis;
 }
