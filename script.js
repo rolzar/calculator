@@ -6,47 +6,54 @@ let isApprentice = false;
 
 function add(){
     let addition = thrCanOnlyBeTwo.master + thrCanOnlyBeTwo.apprentice;
-    theReplacement(addition);
+    addition = theReplacement(addition);
     
     return display.innerText = addition
 }
 
 function subtract(){
     let sub = thrCanOnlyBeTwo.master - thrCanOnlyBeTwo.apprentice
-    theReplacement(sub);
+    sub = theReplacement(sub);
 
     return display.innerText = sub
 }
 
 function multiply(){
     let multi = thrCanOnlyBeTwo.master * thrCanOnlyBeTwo.apprentice;
-    theReplacement(multi);
+    multi = theReplacement(multi);
 
     return display.innerText = multi
 }
 
 function divide(){
     let div = thrCanOnlyBeTwo.master / thrCanOnlyBeTwo.apprentice;
-    theReplacement(div);
+    div = theReplacement(div);
+
 
     return display.innerText = div
 }
 
 function remainder(){
     let rem = thrCanOnlyBeTwo.master % thrCanOnlyBeTwo.apprentice;
-    theReplacement(rem);
+    rem = theReplacement(rem);
 
     return display.innerText = rem
 }
 
 
 function theReplacement(after){
+    let str = after.toString();
+    let display = after;
+    if(str.length >= 9){
+        display = after.toExponential(3);
+    }
     thrCanOnlyBeTwo.master = after;
 
     delete thrCanOnlyBeTwo.apprentice
     delete thrCanOnlyBeTwo.math
     isApprentice = true
-
+    console.log(display);
+    return display
 }
 
 function changeDisplay(event){
