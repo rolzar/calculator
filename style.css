@@ -4,11 +4,13 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
+    background-color: rgb(179, 175, 175);
 }
 
 .title{
-    font-size: 30px;
+    font-size: 40px;
     margin: 30px 0px;
+    font-family:monospace
 }
 
 
@@ -16,11 +18,11 @@ body{
     width: 500px;
     height: 650px;
     padding: 10px;
+    border-radius: 10px;
     background-color: rgb(59, 58, 58);
-    border: solid black;   
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: repeat(6,1fr); 
+    grid-template-rows: 1.5fr repeat(5,1fr); 
     grid-template-areas: 
     "display display display display"
     '. . . .''. . . .''. . . .''. . . .'
@@ -31,10 +33,12 @@ body{
 .display{
     grid-area: display;
     margin-bottom: 30px;
-    margin-right: 30px;
+    margin-left: 30px;
     font-size: 100px;
     text-align: end;
     color: white;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .btn {
